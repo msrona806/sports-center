@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 
-const SignUp = () => (
+const Home = () => (
   <div className='login-form'>
     {/*
       Heads up! The styles below are necessary for the correct render of this example.
@@ -22,7 +22,7 @@ const SignUp = () => (
     >
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as='h2' color='teal' textAlign='center'>
-          <Image src='/logo.png' />
+          <Image src='../client/public/assets/images/Invictus.jpg' />
           {' '}Log-in to your account
         </Header>
         <Form size='large'>
@@ -52,4 +52,4 @@ const SignUp = () => (
   </div>
 )
 
-export default SignUp
+export default Home;
