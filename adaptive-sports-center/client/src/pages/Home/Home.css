@@ -3,7 +3,12 @@ body > div > div,
 body > div > div > div.login-form {
   height: 100%;
 }
-.pageTitle {
-  color: maroon;  
-  font-family: 'Poiret One', cursive;
+h1 {
+  color: #999999;  
+  font-family: 'Tangerine';
+  font-size: 400%;
+}
+
+h4 {
+  font-family: 'Delius';
 }

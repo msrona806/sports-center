@@ -3,15 +3,20 @@ import { Card } from 'semantic-ui-react'
 
 const items = [
   {
-    header: 'Project Report - April',
-    description: 'Leverage agile frameworks to provide a robust synopsis for high level overviews.',
-    meta: 'ROI: 30%',
+    header: 'Event',
+    description: 'Event 1 in the mountains riding cool bikes.',
+    meta: '4/15/2018',
   },
   {
-    header: 'Project Report - May',
-    description: 'Bring to the table win-win survival strategies to ensure proactive domination.',
-    meta: 'ROI: 34%',
+    header: 'Event',
+    description: 'Event 2 at the big gym doing stuff.',
+    meta: '3/30/2018',
   },
+  {
+    header: 'Event',
+    description: 'Competition to see who can do stuff better than other people.',
+    meta: '3/30/2018',
+  }
 ]
 
 const EventCard = () => (
