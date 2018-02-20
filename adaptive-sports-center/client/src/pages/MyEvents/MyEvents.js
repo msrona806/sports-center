@@ -1,37 +1,38 @@
 import React from 'react'
-import { Table } from 'semantic-ui-react'
-import Jumbotron from '../../components/Jumbotron';
+import { Table, Grid } from 'semantic-ui-react'
+import Title from '../../components/Title';
+import Footer from '../../components/Footer';
 
-const colors = [
-  'red', 'orange', 'yellow', 'olive', 'green', 'teal', 'blue', 'violet', 'purple', 'pink', 'brown', 'grey', 'black',
-]
 const MyEvents = () => (
   <div>
-    <Jumbotron />
-    {colors.map(color => (
-      <Table color={'teal'} key={'teal'} inverted>
+    <Title />
+    <Grid>
+    <Grid.Row>
+    <Grid.Column width={8}>
+      <Table color='teal'>
         <Table.Header>
           <Table.Row>
-            <Table.HeaderCell>Food</Table.HeaderCell>
-            <Table.HeaderCell>Calories</Table.HeaderCell>
-            <Table.HeaderCell>Protein</Table.HeaderCell>
+            <Table.HeaderCell>Event</Table.HeaderCell>
+            <Table.HeaderCell>Date</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
 
         <Table.Body>
           <Table.Row>
-            <Table.Cell>Apples</Table.Cell>
-            <Table.Cell>200</Table.Cell>
-            <Table.Cell>0g</Table.Cell>
+            <Table.Cell>Event 1</Table.Cell>
+            <Table.Cell>4/15/2018</Table.Cell>
+        
           </Table.Row>
           <Table.Row>
-            <Table.Cell>Orange</Table.Cell>
-            <Table.Cell>310</Table.Cell>
-            <Table.Cell>0g</Table.Cell>
+            <Table.Cell>Event 2</Table.Cell>
+            <Table.Cell>3/30/2018</Table.Cell>
           </Table.Row>
         </Table.Body>
       </Table>
-    ))}
+      </Grid.Column>
+      </Grid.Row>
+      </Grid>
+    <Footer />
   </div>
 )
 
