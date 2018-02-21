@@ -27,7 +27,7 @@ const Home = () => (
 
       <Grid.Column width={8}>
 
-      <div class = "pageTitle">
+      <div className = "pageTitle">
       <h1><u>Adaptive Sports Center</u></h1>
       </div>
       

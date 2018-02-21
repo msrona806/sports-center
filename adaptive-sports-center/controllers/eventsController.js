@@ -2,14 +2,15 @@
 const db = require("../models");
 
 // Defining methods for the booksController
-module.exports = function(app) {
+module.exports =  {
   
   // GET route for getting all of the events
-  app.get("/api/events", function(req, res) {
+  // app.get("/api/events", function(req, res) {
+        
   
-  db.Events.findAll({}).then(function(dbEvents) {
-    // We have access to the events as an argument inside of the callback function
-    res.json(dbEvents);
-  });
-});
-}
+  findAll: function(req, res) {
+    db.Events
+      .findall({}).then(dbEvents => res.json(dbEvents))
+  }
+}   
+// });
