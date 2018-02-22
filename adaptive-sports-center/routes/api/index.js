@@ -1,7 +1,7 @@
-// const router = require("express").Router();
-// const eventRoutes = require("./events");
+const router = require("express").Router();
+const eventRoutes = require("./events");
 
-// // Event routes
-// router.use("/events", eventRoutes);
+// Event routes
+router.use("/events", eventRoutes);
 
-// module.exports = router;
+module.exports = router;

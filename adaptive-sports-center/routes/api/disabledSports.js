@@ -8,7 +8,7 @@ app.get("/usa", function (req, res) {
 
 		$(".article-item").each(function (i, body) {
 			var result = {};
-			result.title = $(this).find("h3").text();
-      result.link = "https://www.nationalmssociety.org" + $(this).find("a").attr("href");
+      result.title = $(this).find("a").text();
+      // result.link = "http://www.disabledsportsusa.org/events/" + $(this).find("a").attr("href");
     });
   });

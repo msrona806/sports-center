@@ -36,7 +36,7 @@ class Events extends Component {
           <EventCard
             // key={events._id}
             // _id={events._id}
-            title={events.title}
+            details={events.details}
             // url={events.url}
             // date={events.date}
            

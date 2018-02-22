@@ -9,8 +9,19 @@ module.exports =  {
         
   
   findAll: function(req, res) {
-    db.Events
-      .findall({}).then(dbEvents => res.json(dbEvents))
+    console.log("find all events")
+    // res.json([{name: "test"}])
+    // res.json(db.Events.findAll({}));
+    db.Events.findAll({}).then(function(dbEvents) {
+      return res.json(dbEvents);
+    });
   }
-}   
-// });
+
+
+
+
+  //   db.Events
+  //     .find(req.query).then(dbEvents => res.json(dbEvents))
+  // }
+// })  
+}

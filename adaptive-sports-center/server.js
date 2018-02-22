@@ -6,6 +6,7 @@
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
+var routes = require("./routes");
 
 // Sets up the Express App
 // =============================================================
@@ -22,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
 app.use(bodyParser.json());
 
+app.use(routes);
 // Static directory
 // app.use(express.static("public"));
 
