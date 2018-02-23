@@ -22,8 +22,9 @@ import React from 'react'
 // const EventCard = () => (
 //   <Card.Group centered items={items} />
 // )
-const EventCard = ({details}) => (
-  <h3> {details} test </h3>
+const EventCard = ({details}, {event}) => (
+ 
+  <h3> {event}, {details} test </h3>
 
 )
 

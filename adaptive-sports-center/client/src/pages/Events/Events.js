@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Title from "../../components/Title";
 import API from "../../utils/API";
 import EventCard from "../../components/EventCard";
+// import Input from "../../components/Input"
 
 class Events extends Component {
 
@@ -25,8 +26,7 @@ class Events extends Component {
       )
       .catch(err => console.log(err));
   };
-
-
+ 
 
   render() {
     return (
@@ -37,12 +37,14 @@ class Events extends Component {
             // key={events._id}
             // _id={events._id}
             details={events.details}
-            // url={events.url}
-            // date={events.date}
-           
-            
+            event={events.event}
+            // date={events.date} 
           />
-        ))}
+         ))}
+        <form>
+          
+        </form>
+       
 
       </div>
     )
