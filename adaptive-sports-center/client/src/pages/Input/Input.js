@@ -1,9 +1,19 @@
 import React, { Component } from "react";
+// import { Link } from "react-router-dom";
 import Button from "../../components/Button";
 import API from "../../utils/API";
+import {Container} from 'semantic-ui-react';
 
 
 class Input extends Component {
+  state = {
+    sportEvents: [],
+    event: "",
+    details: "",
+    location: "",
+    date: ""
+  };
+
 
   componentDidMount() {
     this.loadEvents();
@@ -22,22 +32,22 @@ class Input extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    if (this.state.eventInput && this.state.detailsInput) {
+    if (this.state.event && this.state.details) {
+      
       API.saveEvent({
-        eventInput: this.state.eventInput,
-        detailsInput: this.state.detailsInput,
-        synopsis: this.state.synopsis
+        event: this.state.event,
+        detailsInput: this.state.details
+        
       })
       console.log("event button clicked")
-        .then(res => this.loadBooks())
+        .then(res => this.loadEvents())
         .catch(err => console.log(err));
     }
   };
 
-
   render() {
     return (
-
+      <Container>
       <div className="ui form">
       
         <div className="fields">
@@ -83,11 +93,13 @@ class Input extends Component {
             <option value="International">International</option>
           </select>
         </div>
-        <Button onClick ={handleFormSubmit} />         
-    
+        <Button onClick= {() => handleFormSubmit} >
+          Click Me
+        </Button>
       </div>
-    )
-  };
+      </Container>
+    );
+  }
 }
 
 export default Input;

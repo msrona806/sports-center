@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import { Link } from "react-router-dom";
 import Title from "../../components/Title";
 import API from "../../utils/API";
 import EventCard from "../../components/EventCard";
@@ -41,10 +42,7 @@ class Events extends Component {
             // date={events.date} 
           />
          ))}
-        <form>
-          
-        </form>
-       
+            
 
       </div>
     )

@@ -28,6 +28,10 @@ module.exports = {
       location: req.body.location
     };
 
+    $("#subButton").click(function() {
+    
+      console.log("On Click submitting services working");
+    }),
 
     // Insert new event in to Events databack
     db.Events.create({}).then(function (dbEvents) {
