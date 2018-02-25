@@ -7,7 +7,7 @@ const SubButton = props => (
  
 
 <Button {...props} >
-<a className="subButton" >
+<a className="ui teal button" >
 {props.children}
 Teal Button</a>
 </Button>
