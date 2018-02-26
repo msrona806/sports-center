@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card } from 'semantic-ui-react'
+// import { Card } from 'semantic-ui-react'
 
 // const items = [
 //   {
@@ -22,21 +22,27 @@ import { Card } from 'semantic-ui-react'
 // const EventCard = () => (
 //   <Card.Group centered items={items} />
 // )
-const EventCard = ({location, event, details} ) => (
- 
-  <div class="ui cards">
-  <div class="card">
-    <div class="content">
-      <div class="header">{event}</div>
-      <div class="meta">{details}</div>
-      <div class="description">
-        {location}
+const EventCard = ({ location, event, details, date }) => (
+
+  <div class="ui three cards">
+    <div class="teal card">
+      <div class="content">
+
+        <div class="header">{event}</div>
+        <div class="date">{date}</div>
+        <div class="meta">{details}</div>
+        <div class="description">
+          {location}
+        </div>
+        <span class="right floated star">
+          <i class="star icon"></i>
+          Favorite
+    </span>
       </div>
     </div>
   </div>
-</div>
   // <h3> {location}  </h3>
-  
+
 )
 
 export default EventCard

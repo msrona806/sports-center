@@ -24,12 +24,12 @@ module.exports = {
     var event = {
       date: req.body.date,
       details: req.body.details,
-      event: req.body.event,
+      event: req.body.event_name,
       location: req.body.location
     };
-    console.log(event);
-    console.log(req);
-    console.log(req.body);
+   
+
+    console.log( "\n Event in create"+ event);
     // $("#subButton").click(function() {
     
     //   console.log("On Click submitting services working");

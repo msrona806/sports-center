@@ -11,7 +11,7 @@
         allowNull: false,
       }, 
       location: {
-        type: DataTypes.CHAR(2),
+        type: DataTypes.STRING,
         allowNull: false
       }  
     }, {

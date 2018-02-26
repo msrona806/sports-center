@@ -50,3 +50,6 @@ class Events extends Component {
   }
 }
 export default Events;
+
+
+  // <h3> {location}  </h3>
