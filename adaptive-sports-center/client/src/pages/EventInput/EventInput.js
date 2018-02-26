@@ -24,9 +24,9 @@ class EventInput extends Component {
 
  
 
-  // componentDidMount() {
-  //   this.loadEvents();
-  // };
+  componentDidMount() {
+    this.loadEvents();
+  };
 
   // loadEvents = () => {
   //   API.getEvents()
