@@ -6,7 +6,7 @@ export default {
     return axios.get("/api/events");
   },
   // Saves an event to the database
-  saveEvent: function(create) {
-    return axios.post("/api/events", create);
+  saveEvent: function(event) {
+    return axios.post("/api/events", event);
   }
 };

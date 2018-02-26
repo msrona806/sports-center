@@ -18,23 +18,25 @@ module.exports = {
   },
 
   // POST route for saving a new event\
-  create: function (Event) {
+  create: function (req, res) {
     console.log("New event added")
-    event.preventDefault();
+    // event.preventDefault();
     var event = {
       date: req.body.date,
       details: req.body.details,
       event: req.body.event,
       location: req.body.location
     };
-
-    $("#subButton").click(function() {
+    console.log(event);
+    console.log(req);
+    console.log(req.body);
+    // $("#subButton").click(function() {
     
-      console.log("On Click submitting services working");
-    }),
+    //   console.log("On Click submitting services working");
+    // }),
 
     // Insert new event in to Events databack
-    db.Events.create({}).then(function (dbEvents) {
+    db.Events.create(event).then(function (dbEvents) {
       return res.json(dbEvents);
     });
 

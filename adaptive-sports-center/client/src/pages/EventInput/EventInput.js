@@ -5,15 +5,24 @@ import API from "../../utils/API";
 import { Container } from 'semantic-ui-react';
 
 
-class Input extends Component {
-  state = {
-    sportEvents: [],
-    event: "",
-    details: "",
-    location: "",
-    date: ""
-  };
 
+class EventInput extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      sportEvents: [],
+      event: "test",
+      details: "",
+      location: "",
+      date: ""
+    };
+  
+
+    this.handleChange = this.handleChange.bind(this);
+    this._handleFormSubmit = this._handleFormSubmit.bind(this);
+  }
+
+ 
 
   // componentDidMount() {
   //   this.loadEvents();
@@ -30,50 +39,82 @@ class Input extends Component {
   // };
 
 
- _handleFormSubmit= event => {
-    console.log("click");
+//  _handleFormSubmit= event => {
+//     console.log("click");
  
+//     console.log(this.state);
+//     event.preventDefault();
+//     const data = new FormData(event.target);
+//     // if (this.state.event && this.state.details) {
+//       console.log(data);
+//       API.saveEvent(
+//         data
+//         // detailsInput: this.state.details
 
+//       ).then(res => this.loadEvents());
+//       console.log("event button clicked")
+//         // .then(res => this.loadEvents())
+//         // .catch(err => console.log(err));
+//     // }
+//   };
+
+  _handleFormSubmit = event => {
     event.preventDefault();
     if (this.state.event && this.state.details) {
-
       API.saveEvent({
         event: this.state.event,
-        detailsInput: this.state.details
-
+        details: this.state.details,
+    location: this.state.location,
+    date: this.state.date
+        
       })
-      console.log("event button clicked")
         .then(res => this.loadEvents())
         .catch(err => console.log(err));
     }
   };
 
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
   render() {
     return (
       <Container>
-        <div>
+        <form  >
           
-          <Button onClick={this._handleFormSubmit}>Click Me</Button>
-        </div>
+        {/* <input type="text"
+                value={this.state.event}
+                onChange={this.handleChange}
+                name="event"
+               
+              />
+              <input type="text"
+              
+                value={this.state.details}
+                onChange={this.handleChange}
+                name="details"
+                
+              />          */}
+       
         <div className="ui form">
 
           <div className="fields">
             <div className="eventInput">
               <label>Event Name:</label>
-              <input type="text" placeholder="eventInput" />
+              <input type="text" id="event" placeholder="eventInput" value={this.state.event}
+                onChange={this.handleChange}  />
             </div>
             <div className="detailsInput">
               <label>Event Details:</label>
-              <input type="text" placeholder="detailsInput" />
+              <input type="text" id="details" placeholder="detailsInput" />
             </div>
             <div className="dateInput">
               <label> Event Date:</label>
-              <input type="date" placeholder="dateInput" />
+              <input type="date" id="date" placeholder="dateInput" />
             </div>
           </div>
           <div className="locationInput"> <label> Event Location: </label>
 
-            <select className="ui search selection dropdown" id="search-select">
+            <select className="ui search selection dropdown" id="location">
               <option value="">Select Location</option>
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
@@ -100,15 +141,14 @@ class Input extends Component {
               <option value="International">International</option>
             </select>
           </div>
-          {/* <Button onClick={() => _handleFormSubmit} >
+          <Button onClick={() => this._handleFormSubmit} >
 
             Click Me
-        </Button> */}
-        </div>
+        </Button> 
+        </div> 
+      </form>
       </Container>
-    )}
+    )};
   };
  
-
-
-export default Input;
+export default EventInput;

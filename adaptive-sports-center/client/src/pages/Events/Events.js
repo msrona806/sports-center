@@ -39,7 +39,8 @@ class Events extends Component {
             // _id={events._id}
             details={events.details}
             event={events.event}
-            // date={events.date} 
+            date={events.date} 
+            location={events.location} 
           />
          ))}
             
