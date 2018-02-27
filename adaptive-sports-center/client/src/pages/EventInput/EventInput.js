@@ -24,9 +24,9 @@ class EventInput extends Component {
 
 
 
-  componentDidMount() {
-    this.loadEvents();
-  };
+  // componentDidMount() {
+  //   this.loadEvents();
+  // };
 
   // loadEvents = () => {
   //   API.getEvents()
@@ -107,9 +107,9 @@ class EventInput extends Component {
               </div>
             </div>
             <div className="locationInput"> <label> Event Location: </label>
-              <input name="location"
-                onChange={this.handleChange} />
-              <select className="ui search selection dropdown" id="location">
+              
+              <select className="ui search selection dropdown" id="location" name="location"
+                onChange={this.handleChange}>
                 <option value="">Select Location</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>

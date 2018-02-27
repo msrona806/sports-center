@@ -43,8 +43,6 @@ class Events extends Component {
             location={events.location} 
           />
          ))}
-            
-
       </div>
     )
   }

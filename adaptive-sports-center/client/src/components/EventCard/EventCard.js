@@ -24,11 +24,10 @@ import { Card } from 'semantic-ui-react'
 // )
 
 const EventCard = ({ location, event, details, date }) => (
-
-  <div class="ui three cards">
+<Card>
+  <div class="ui cards">
     <div class="teal card">
       <div class="content">
-
         <div class="header">{event}</div>
         <div class="date">{date}</div>
         <div class="meta">{details}</div>
@@ -42,7 +41,7 @@ const EventCard = ({ location, event, details, date }) => (
       </div>
     </div>
   </div>
-  // <h3> {location}  </h3>
+</Card>
 
 
 )
