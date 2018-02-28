@@ -1,5 +1,6 @@
 /// <reference types="react" />
 import * as React from 'react';
+export declare type SpinIndicator = React.ReactElement<any>;
 export interface SpinProps {
     prefixCls?: string;
     className?: string;
@@ -9,7 +10,7 @@ export interface SpinProps {
     tip?: string;
     delay?: number;
     wrapperClassName?: string;
-    indicator?: React.ReactNode;
+    indicator?: SpinIndicator;
 }
 export interface SpinState {
     spinning?: boolean;
@@ -37,5 +38,6 @@ export default class Spin extends React.Component<SpinProps, SpinState> {
     componentDidMount(): void;
     componentWillUnmount(): void;
     componentWillReceiveProps(nextProps: SpinProps): void;
+    renderIndicator(): React.ReactElement<any>;
     render(): JSX.Element;
 }

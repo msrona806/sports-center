@@ -12,7 +12,11 @@ var env = require("dotenv").load();
 var passport = require("passport");
 var axios = require("axios");
 var cheerio = require("cheerio");
-
+var http = require("http");
+var passportConfig = require('./config/passport/passport');
+var application = require('./routes/application');
+var user = require('./routes/user');
+var cookieParser = require("cookie-parser");
 
 // Sets up the Express App
 // =============================================================
@@ -29,18 +33,40 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //===================PASSPORT===================================
-// session secret
-app.use(session({secret:'keyboard cat', resave: true, saveUninitialized: true}));
-app.use(passport.initialize());
-// persistent login session
-app.use(passport.session());
 
-//load passport strategies
-require('./config/passport/passport.js')(passport, db.user);
+SALT_WORK_FACTOR = 12;
+
+app.use('/public', express.static(__dirname+'/public'));
+
+app.set('views', __dirname + '/views')
+
+// app.use(express.urlencoded())
+// app.use(express.bodyParser())
+app.use(cookieParser)
+app.use(session({secret:'keyboard cat', resave: true, saveUninitialized: true}));
+// app.use(session({ secret: 'goatjsformakebettersecurity'}))
+app.use(passport.initialize())
+app.use(passport.session())
+// app.use(app.router)
+
+// if ('development' === app.get('env')) {
+// 	app.use(express.errorHandler())
+// }
+
+app.get('/allevents', application.IsAuthenticated)
+app.post('/authenticate',
+  passport.authenticate('local',{
+	successRedirect: '/allevents',
+	failureRedirect: '/'
+  })
+)
+app.get('/logout', application.destroySession)
+app.get('/signup', user.signUp)
+app.post('/register', user.register)
 
 
 //====================ROUTES=====================================
-app.use(routes);
+// app.use(routes);
 // Static directory
 // app.use(express.static("public"));
 
@@ -75,4 +101,4 @@ db.sequelize.sync().then(function(err) {
       // If we were able to successfully scrape and save an Article, send a message to the client
       res.send("Scraper Complete");
     });
-  
+    app.use(routes);

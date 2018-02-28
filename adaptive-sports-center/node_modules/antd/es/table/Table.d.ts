@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Store } from './createStore';
 import Column from './Column';
 import ColumnGroup from './ColumnGroup';
+import { SpinProps } from '../spin';
 import { TableProps, TableState, TableComponents, TableLocale, ColumnProps, TableStateFilters, SelectionItemSelectFn } from './interface';
 export default class Table<T> extends React.Component<TableProps<T>, TableState<T>> {
     static Column: typeof Column;
@@ -86,6 +87,6 @@ export default class Table<T> extends React.Component<TableProps<T>, TableState<
     recursiveSort(data: T[], sorterFn: (a: any, b: any) => number): T[];
     getLocalData(): T[];
     createComponents(components?: TableComponents, prevComponents?: TableComponents): void;
-    renderTable: (contextLocale: TableLocale) => JSX.Element;
+    renderTable: (contextLocale: TableLocale, loading: SpinProps) => JSX.Element;
     render(): JSX.Element;
 }
