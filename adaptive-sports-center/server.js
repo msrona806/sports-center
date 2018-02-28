@@ -57,7 +57,7 @@ db.sequelize.sync().then(function(err) {
   }).catch(function(err) {
     console.log("Something went wrong with the database!")
   })
-  app.get("/scrape", function (req, res) {
+  app.get("/usa", function (req, res) {
     //get the body of the html
     axios.get("http://www.disabledsportsusa.org/events/").then(function (response) {
       //load response into cheerio
