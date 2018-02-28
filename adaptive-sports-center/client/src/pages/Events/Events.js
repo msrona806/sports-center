@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Title from "../../components/Title";
 import API from "../../utils/API";
 import EventCard from "../../components/EventCard";
+import result from "./server.js";
 // import Input from "../../components/Input"
 
 class Events extends Component {
@@ -43,6 +44,7 @@ class Events extends Component {
             location={events.location} 
           />
          ))}
+         {result.title}
       </div>
     )
   }
