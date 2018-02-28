@@ -56,9 +56,9 @@ const Home = () => (
             <Button color='teal' fluid size='large'>Login</Button>
           </Segment>
         </Form>
-        <Message>
-          New to us? 
-        </Message>
+        <form action="/signup">
+        <input type="submit" value="New to us?" />
+        </form>
       </Grid.Column>
 
       <Grid.Column width={4}>

@@ -119,9 +119,8 @@ class EventInput extends Component {
               </select>
             </div>
             <Button onClick={this._handleFormSubmit} >
-
               Click Me
-        </Button>
+            </Button>
           </div>
         </form>
       </Container>

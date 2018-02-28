@@ -56,23 +56,39 @@ db.sequelize.sync().then(function(err) {
       console.log("DB looks good!");
   }).catch(function(err) {
     console.log("Something went wrong with the database!")
-  })
-  app.get("/usa", function (req, res) {
-    //get the body of the html
-    axios.get("http://www.disabledsportsusa.org/events/").then(function (response) {
-      //load response into cheerio
-      var $ = cheerio.load(response.data);
-      // console.log(response.data);
+  });
+  // app.get("/usa", function (req, res) {
+  //   //get the body of the html
+  //   axios.get("http://www.disabledsportsusa.org/events/").then(function (response) {
+  //     //load response into cheerio
+  //     var $ = cheerio.load(response.data);
+  //     // console.log(response.data);
   
-      $(".event-info").each(function (i, body) {
-        var result = {};
-        result.title = $(this).find("h3").text();
-        result.link = "http://www.disabledsportsusa.org/events/" + $(this).find("a").attr("href");		
-      console.log(result.title);	
-      console.log(result.link);	});
-      });
+  //     $(".event-info").each(function (i, body) {
+  //       var result = {};
+  //       result.title = $(this).find("h3").text();
+  //       result.link = "http://www.disabledsportsusa.org/events/" + $(this).find("a").attr("href");	
+        
+  //       console.log(result.title);	
+  //       console.log(result.link);
+
+      // PUT IN AJAX $.POST TO EVENTSCONTROLLER
+
+
+      //   db.event.create(result)
+
+			// 	.then(function (dbevent) {
+      //     res.redirect("/allevents")
+      
+      // })
+      // .catch(function (err) {
+      //   // If an error occurred, send it to the client
+      //   console.log(err);
+      // });
+    //   });
+    // });
   
       // If we were able to successfully scrape and save an Article, send a message to the client
-      res.send("Scraper Complete");
-    });
+      // res.send("Scraper Complete");
+    // });
   

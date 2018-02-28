@@ -4,6 +4,7 @@ import Title from "../../components/Title";
 import API from "../../utils/API";
 import EventCard from "../../components/EventCard";
 
+// import If from 'react-iframe';
 // import Input from "../../components/Input"
 
 class Events extends Component {
@@ -11,8 +12,8 @@ class Events extends Component {
   state = {
     events: [],
     date: "",
-    location: "",
-    details: ""
+    location: "", 
+    details: "" 
   };
 
   componentDidMount() {
@@ -28,11 +29,11 @@ class Events extends Component {
       )
       .catch(err => console.log(err));
   };
- 
 
   render() {
     return (
       <div>
+        
         <Title />
         {this.state.events.map(events => (
           <EventCard
@@ -44,7 +45,7 @@ class Events extends Component {
             location={events.location} 
           />
          ))}
-         
+        
       </div>
     )
   }
