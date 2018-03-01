@@ -5,11 +5,11 @@
 // *** Dependencies
 // =============================================================
 var express = require("express");
-var bodyParser = require("body-parser");
+// var bodyParser = require("body-parser");
 var routes = require("./routes");
-var session = require("express-session");
+// var session = require("express-session");
 var env = require("dotenv").load();
-var passport = require("passport");
+// var passport = require("passport");
 var axios = require("axios");
 var cheerio = require("cheerio");
 
@@ -21,19 +21,20 @@ var PORT = process.env.PORT || 8080;
 
 // Requiring for models syncing
 var db = require("./models");
+var authRoute = require('./routes/api/auth.js')(app);
 
 //===============BODY-PARSER====================================
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }));
-// parse application/json
-app.use(bodyParser.json());
+// // parse application/x-www-form-urlencoded
+// app.use(bodyParser.urlencoded({ extended: false }));
+// // parse application/json
+// app.use(bodyParser.json());
 
-//===================PASSPORT===================================
-// session secret
-app.use(session({secret:'keyboard cat', resave: true, saveUninitialized: true}));
-app.use(passport.initialize());
-// persistent login session
-app.use(passport.session());
+// //===================PASSPORT===================================
+// // session secret
+// app.use(session({secret:'keyboard cat', resave: true, saveUninitialized: true}));
+// app.use(passport.initialize());
+// // persistent login session
+// app.use(passport.session());
 
 //load passport strategies
 // require('./config/passport/passport.js')(passport, db.user);
@@ -43,6 +44,7 @@ app.use(passport.session());
 app.use(routes);
 // Static directory
 // app.use(express.static("public"));
+
 
 // =============================================================
 // require("./routes")(app);
@@ -57,38 +59,4 @@ db.sequelize.sync().then(function(err) {
   }).catch(function(err) {
     console.log("Something went wrong with the database!")
   });
-  // app.get("/usa", function (req, res) {
-  //   //get the body of the html
-  //   axios.get("http://www.disabledsportsusa.org/events/").then(function (response) {
-  //     //load response into cheerio
-  //     var $ = cheerio.load(response.data);
-  //     // console.log(response.data);
-  
-  //     $(".event-info").each(function (i, body) {
-  //       var result = {};
-  //       result.title = $(this).find("h3").text();
-  //       result.link = "http://www.disabledsportsusa.org/events/" + $(this).find("a").attr("href");	
-        
-  //       console.log(result.title);	
-  //       console.log(result.link);
-
-      // PUT IN AJAX $.POST TO EVENTSCONTROLLER
-
-
-      //   db.event.create(result)
-
-			// 	.then(function (dbevent) {
-      //     res.redirect("/allevents")
-      
-      // })
-      // .catch(function (err) {
-      //   // If an error occurred, send it to the client
-      //   console.log(err);
-      // });
-    //   });
-    // });
-  
-      // If we were able to successfully scrape and save an Article, send a message to the client
-      // res.send("Scraper Complete");
-    // });
   

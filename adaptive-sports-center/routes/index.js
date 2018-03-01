@@ -10,9 +10,37 @@
 const path =require ("path");
 const router = require ("express").Router();
 const apiRoutes = require("./api");
+var passport = require("passport");
+var session = require("express-session");
+var bodyParser = require('body-parser')
+var env = require('dotenv').load();
 
+//===================ROUTES===================================
 
 router.use("/api", apiRoutes);
+
+router.get('/', function(req, res) {
+ 
+  res.send('Welcome to Passport with Sequelize');
+
+});
+//===============BODY-PARSER====================================
+// parse application/x-www-form-urlencoded
+router.use(bodyParser.urlencoded({ extended: true }));
+// parse application/json
+router.use(bodyParser.json());
+
+//===================PASSPORT===================================
+// session secret
+router.use(session({secret:'keyboard cat', resave: true, saveUninitialized: true}));
+router.use(passport.initialize());
+// persistent login session
+router.use(passport.session());
+
+//load passport strategies
+// require('./config/passport/passport.js')(passport, db.user);
+
+
 
 // router.use((req, res) => 
 // res.sendFile(path.join(__dirname, "..client/build/index.html"))

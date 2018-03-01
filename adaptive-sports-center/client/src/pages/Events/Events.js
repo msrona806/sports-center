@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 // import { Link } from "react-router-dom";
+// import {Grid} from 'semantic-ui-react';
+
 import Title from "../../components/Title";
 import API from "../../utils/API";
 import EventCard from "../../components/EventCard";
@@ -32,8 +34,8 @@ class Events extends Component {
 
   render() {
     return (
-      <div>
-        
+      
+      <div>        
         <Title />
         {this.state.events.map(events => (
           <EventCard
@@ -45,9 +47,9 @@ class Events extends Component {
             location={events.location} 
           />
          ))}
-         <UsaEvents />
-       
-      </div>
+         
+       <UsaEvents />
+     </div>
     )
   }
 }
