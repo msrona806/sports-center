@@ -5,7 +5,7 @@ import API from "../../utils/API";
 import EventCard from "../../components/EventCard";
 
 // import If from 'react-iframe';
-// import Input from "../../components/Input"
+import UsaEvents from "../../components/UsaEvents"
 
 class Events extends Component {
 
@@ -37,15 +37,16 @@ class Events extends Component {
         <Title />
         {this.state.events.map(events => (
           <EventCard
-            // key={events._id}
-            // _id={events._id}
+            key={events.id}
+            id={events.id}
             details={events.details}
             event={events.event}
             date={events.date} 
             location={events.location} 
           />
          ))}
-        
+         <UsaEvents />
+       
       </div>
     )
   }

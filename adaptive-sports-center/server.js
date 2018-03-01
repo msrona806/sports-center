@@ -36,7 +36,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //load passport strategies
-require('./config/passport/passport.js')(passport, db.user);
+// require('./config/passport/passport.js')(passport, db.user);
 
 
 //====================ROUTES=====================================
