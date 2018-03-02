@@ -9,7 +9,7 @@ var express = require("express");
 var routes = require("./routes");
 // var session = require("express-session");
 var env = require("dotenv").load();
-// var passport = require("passport");
+var passport = require("passport");
 var axios = require("axios");
 var cheerio = require("cheerio");
 
@@ -21,7 +21,7 @@ var PORT = process.env.PORT || 8080;
 
 // Requiring for models syncing
 var db = require("./models");
-var authRoute = require('./routes/api/auth.js')(app);
+var authRoute = require('./routes/api/auth.js')(app, passport);
 
 //===============BODY-PARSER====================================
 // // parse application/x-www-form-urlencoded
@@ -45,7 +45,11 @@ app.use(routes);
 // Static directory
 // app.use(express.static("public"));
 
-
+//load passport strategies
+require("./config/passport/passport.js")(passport, db.user);
+app.get("/", function (req, res) {
+	res.render("index");
+});
 // =============================================================
 // require("./routes")(app);
 app.listen(PORT, function() {

@@ -5,7 +5,7 @@ import { FormBtn } from '../../components/Form'
 
 const SignUp = () => (
   <div>
-   
+   <form id="signup" name = "signup" method = "post" action = "/signup">
      
 <div className="user">
 <label> Username:</label>
@@ -30,6 +30,7 @@ const SignUp = () => (
 
 
         <FormBtn/>
+        </form>
   </div>
 
   
