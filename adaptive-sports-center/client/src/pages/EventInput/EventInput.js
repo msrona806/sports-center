@@ -22,41 +22,6 @@ class EventInput extends Component {
     this._handleFormSubmit = this._handleFormSubmit.bind(this);
   }
 
-
-
-  // componentDidMount() {
-  //   this.loadEvents();
-  // };
-
-  // loadEvents = () => {
-  //   API.getEvents()
-  //     .then(res =>
-  //       this.setState({ events: res.data },
-  //         console.log("hello world"),
-  //         console.log(res.data))
-  //     )
-  //     .catch(err => console.log(err));
-  // };
-
-
-  //  _handleFormSubmit= event => {
-  //     console.log("click");
-
-  //     console.log(this.state);
-  //     event.preventDefault();
-  //     const data = new FormData(event.target);
-  //     // if (this.state.event && this.state.details) {
-  //       console.log(data);
-  //       API.saveEvent(
-  //         data
-  //         // detailsInput: this.state.details
-
-  //       ).then(res => this.loadEvents());
-  //       console.log("event button clicked")
-  //         // .then(res => this.loadEvents())
-  //         // .catch(err => console.log(err));
-  //     // }
-  //   };
   handleChange(event) {
     const { name, value } = event.target
     this.setState({
@@ -72,8 +37,8 @@ class EventInput extends Component {
       API.saveEvent({
         event_name: this.state.event_name,
         details: this.state.details,
-        // location: this.state.location,
-        // date: this.state.date
+        location: this.state.location,
+        date: this.state.date
 
       }); console.log("click")
       // .then(res => this.loadEvents())
@@ -105,9 +70,9 @@ class EventInput extends Component {
               </div>
             </div>
             <div className="locationInput"> <label> Event Location: </label>
-              <input name="location" 
-                onChange={this.handleChange} />
-              <select className="ui search selection dropdown" id="location">
+              <select className="ui search selection dropdown" id="location"
+              name="location" 
+              onChange={this.handleChange}>
                 <option value="">Select Location</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>

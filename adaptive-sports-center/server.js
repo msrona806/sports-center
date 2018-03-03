@@ -5,9 +5,9 @@
 // *** Dependencies
 // =============================================================
 var express = require("express");
-// var bodyParser = require("body-parser");
+var bodyParser = require("body-parser");
 var routes = require("./routes");
-// var session = require("express-session");
+var session = require("express-session");
 var env = require("dotenv").load();
 var passport = require("passport");
 var axios = require("axios");
@@ -21,23 +21,23 @@ var PORT = process.env.PORT || 8080;
 
 // Requiring for models syncing
 var db = require("./models");
-require('./routes/api/auth.js')(app, passport);
+// require('./routes/api/auth.js')(app, passport);
 
 //===============BODY-PARSER====================================
 // // parse application/x-www-form-urlencoded
-// app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 // // parse application/json
-// app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 // //===================PASSPORT===================================
 // // session secret
-// app.use(session({secret:'keyboard cat', resave: true, saveUninitialized: true}));
-// app.use(passport.initialize());
+app.use(session({secret:'keyboard cat', resave: true, saveUninitialized: true}));
+app.use(passport.initialize());
 // // persistent login session
-// app.use(passport.session());
+app.use(passport.session());
 
 //load passport strategies
-// require('./config/passport/passport.js')(passport, db.user);
+require('./config/passport/passport.js')(passport, db.user);
 
 
 //====================ROUTES=====================================
