@@ -1,4 +1,8 @@
+// const passport = require("../../config/passport/passport.js");
+const passport = require("passport");
 const authController = require('../../controllers/authcontroller.js');
+const router = require("express").Router();
+
  
 module.exports = function(app, passport) {
  
@@ -8,7 +12,15 @@ module.exports = function(app, passport) {
 
         failureRedirect: '/signup'
     }
-
 ));
-    
 }
+
+// router.route("/signup")
+//     .get(authController.signup)
+//     .post(function (req,res) {
+//     var username = req.body.username;
+//     var password = req.body.password;
+//     console.log("post successful", username, password);
+// })
+
+// module.exports = router;

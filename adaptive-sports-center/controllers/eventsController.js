@@ -26,8 +26,7 @@ module.exports = {
       details: req.body.details,
       event: req.body.event_name,
       location: req.body.location
-    };
-   
+    };   
 
     console.log( "\n Event in create"+ event);
     // $("#subButton").click(function() {
@@ -35,7 +34,7 @@ module.exports = {
     //   console.log("On Click submitting services working");
     // }),
 
-    // Insert new event in to Events databack
+    // Insert new event in to Events database
     db.Events.create(event).then(function (dbEvents) {
       return res.json(dbEvents);
     });

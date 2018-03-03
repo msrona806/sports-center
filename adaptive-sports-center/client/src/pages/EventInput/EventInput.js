@@ -8,7 +8,7 @@ import { Container } from 'semantic-ui-react';
 
 class EventInput extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       sportEvents: [],
       event_name: "",
@@ -58,30 +58,28 @@ class EventInput extends Component {
   //     // }
   //   };
   handleChange(event) {
-    const { name, value } = event.target;
+    const { name, value } = event.target
     this.setState({
       [name]: value
     });
   };
 
   _handleFormSubmit = event => {
-    console.log("handle form submit");
-    event.preventDefault();
+    console.log("handle form submit")
+    event.preventDefault()
     console.log(this.state.event_name)
     if (this.state.event_name && this.state.details) {
       API.saveEvent({
         event_name: this.state.event_name,
         details: this.state.details,
-        location: this.state.location,
-        date: this.state.date
+        // location: this.state.location,
+        // date: this.state.date
 
       }); console.log("click")
       // .then(res => this.loadEvents())
       // .catch(err => console.log(err));
     }
   };
-
-
 
   render() {
     return (
@@ -92,24 +90,24 @@ class EventInput extends Component {
             <div className="fields">
               <div className="eventInput">
                 <label>Event Name:</label>
-                <input name="event_name" type="text" id="event" placeholder="eventInput" value={this.state.event}
+                <input name="event_name" type="text" id="event" placeholder="eventInput" value={this.state.event_name}
                   onChange={this.handleChange} />
               </div>
               <div className="detailsInput">
                 <label>Event Details:</label>
-                <input name="details" type="text" id="details" placeholder="detailsInput"
+                <input name="details" type="text" id="details" placeholder="detailsInput" value={this.state.details}
                   onChange={this.handleChange} />
               </div>
               <div className="dateInput">
                 <label> Event Date:</label>
-                <input name="date" type="date" id="date" placeholder="dateInput"
+                <input name="date" type="date" id="date" placeholder="dateInput" value={this.state.date}
                   onChange={this.handleChange} />
               </div>
             </div>
             <div className="locationInput"> <label> Event Location: </label>
-              
-              <select className="ui search selection dropdown" id="location" name="location"
-                onChange={this.handleChange}>
+              <input name="location" 
+                onChange={this.handleChange} />
+              <select className="ui search selection dropdown" id="location">
                 <option value="">Select Location</option>
                 <option value="AL">Alabama</option>
                 <option value="AK">Alaska</option>
@@ -119,8 +117,9 @@ class EventInput extends Component {
               </select>
             </div>
             <Button onClick={this._handleFormSubmit} >
+
               Click Me
-            </Button>
+        </Button>
           </div>
         </form>
       </Container>

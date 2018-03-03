@@ -21,7 +21,7 @@ var PORT = process.env.PORT || 8080;
 
 // Requiring for models syncing
 var db = require("./models");
-var authRoute = require('./routes/api/auth.js')(app, passport);
+require('./routes/api/auth.js')(app, passport);
 
 //===============BODY-PARSER====================================
 // // parse application/x-www-form-urlencoded

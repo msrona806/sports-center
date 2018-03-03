@@ -43,7 +43,6 @@ const EventCard = ({ id, location, event, details, date }) => (
   </div>
 </Card>
 
-
 )
 
 export default EventCard
