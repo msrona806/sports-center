@@ -48,7 +48,7 @@ class Signup extends Component {
     return (
       <Grid>
         <Grid.Column width={8}>
-          <form id="signup" name="signup" method="post" action="/signup">
+          <form id="signup" name="signup" method="post" action="/signin">
 
             <div className="user">
               <label> Username:</label>

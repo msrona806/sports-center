@@ -4,8 +4,6 @@ import Button from "../../components/Button";
 import API from "../../utils/API";
 import { Container } from 'semantic-ui-react';
 
-
-
 class EventInput extends Component {
   constructor(props) {
     super(props)
@@ -16,7 +14,6 @@ class EventInput extends Component {
       location: "",
       date: ""
     };
-
 
     this.handleChange = this.handleChange.bind(this);
     this._handleFormSubmit = this._handleFormSubmit.bind(this);

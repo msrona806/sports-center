@@ -10,9 +10,16 @@ export default {
     console.log("inside save event" + eventData);
     return axios.post("/api/events", eventData);
   },
+
+  // getUsers: function() {
+  //   return axios.get("/api/signup");
+  // },
+  
+
   // saves a user to the database
   saveUser: function(userData) {
     console.log("inside user event" + userData)
-    return axios.post("/api/signup", userData);
+    return axios.post("/api/signup/signup", userData);
+    
   }
 };
