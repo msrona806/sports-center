@@ -27,6 +27,7 @@ class Signup extends Component {
   _handleFormSubmit = event => {
     console.log("handle user form submit");
     event.preventDefault();
+    window.location.href = "/allevents";
     console.log(this.state.username);
     console.log(this.state.password);
     console.log(this.state.email);

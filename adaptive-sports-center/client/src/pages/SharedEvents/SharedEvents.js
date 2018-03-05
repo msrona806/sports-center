@@ -3,7 +3,7 @@ import { Table, Grid } from 'semantic-ui-react'
 import Title from '../../components/Title';
 import Footer from '../../components/Footer';
 
-const MyEvents = () => (
+const SharedEvents = () => (
   <div>
     <Title />
     <Grid>
@@ -36,4 +36,4 @@ const MyEvents = () => (
   </div>
 )
 
-export default MyEvents
+export default SharedEvents;

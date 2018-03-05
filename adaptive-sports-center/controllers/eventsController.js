@@ -16,6 +16,14 @@ module.exports = {
       return res.json(dbEvents);
     });
   },
+  //SEPERATE TABLE FOR USER CREATED EVENTS
+  // findAll: function (req, res) {
+  //   console.log("find all user created events")
+
+  //   db.SharedEvents.findAll({}).then(function (dbSharedEvents) {
+  //     return res.json(dbSharedEvents);
+  //   });
+  // },
 
   // POST route for saving a new event\
   create: function (req, res) {
@@ -39,7 +47,7 @@ module.exports = {
       return res.json(dbEvents);
     });
 
-    // create takes an argument of an object describing the item we want to
+     // create takes an argument of an object describing the item we want to
     // insert into our table. In this case we just we pass in an object with a text
     // and complete property (req.body)
 

@@ -6,16 +6,21 @@
         type: DataTypes.STRING,
         allowNull: false
       },      
-      date: {
-        type: DataTypes.DATE,
-        allowNull: false,
-      }, 
-      location: {
-        type: DataTypes.STRING,
-        allowNull: false
-      }  
+      // date: {
+      //   type: DataTypes.DATE,
+      //   allowNull: false,
+      // }, 
+      // location: {
+      //   type: DataTypes.STRING,
+      //   allowNull: false
+      // }  
     }, {
       timestamps: false
     });
     return Events;
   };
+
+  // MAKE AN EMAIL PROPERTY
+  //MAKE A MAILTO IN FORM TO SEND EMAIL TO EVENT ORGANIZERE
+  //ADD LINK TO SEND EMAIL ON EVENT CARD
+  

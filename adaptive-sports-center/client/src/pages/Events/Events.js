@@ -7,7 +7,7 @@ import API from "../../utils/API";
 import EventCard from "../../components/EventCard";
 
 // import If from 'react-iframe';
-import UsaEvents from "../../components/UsaEvents"
+// import UsaEvents from "../../components/UsaEvents"
 
 class Events extends Component {
 
@@ -48,7 +48,6 @@ class Events extends Component {
           />
          ))}
          
-       <UsaEvents />
      </div>
     )
   }

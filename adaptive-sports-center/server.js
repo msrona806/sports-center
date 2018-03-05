@@ -31,25 +31,29 @@ app.use(bodyParser.json());
 
 // //===================PASSPORT===================================
 // // session secret
-app.use(session({secret:'keyboard cat', resave: true, saveUninitialized: true}));
-app.use(passport.initialize());
-// // persistent login session
-app.use(passport.session());
+// app.use(session({secret:'keyboard cat', resave: true, saveUninitialized: true}));
+// app.use(passport.initialize());
+// // // persistent login session
+// app.use(passport.session());
 
-//load passport strategies
-require('./config/passport/passport.js')(passport, db.user);
+// //load passport strategies
+// require('./config/passport/passport.js')(passport, db.user);
 
 
 //====================ROUTES=====================================
 app.use(routes);
 // Static directory
-// app.use(express.static("public"));
+app.use(express.static("public"));
+
+// app.set('view engine', 'html')
 
 //load passport strategies
-require("./config/passport/passport.js")(passport, db.user);
-app.get("/", function (req, res) {
-	res.render("index");
-});
+// require("./config/passport/passport.js")(passport, db.user);
+// app.get("/", function (req, res) {
+// 	res.render("index");
+// });
+
+
 // =============================================================
 // require("./routes")(app);
 app.listen(PORT, function() {
@@ -64,3 +68,64 @@ db.sequelize.sync().then(function(err) {
     console.log("Something went wrong with the database!")
   });
   
+  app.get("/scrape", function (req, res) {
+    // get the body of the html
+    axios.get("http://www.disabledsportsusa.org/events/").then(function (response) {
+      //load response into cheerio
+      var $ = cheerio.load(response.data);
+      // console.log(response.data);
+
+  
+
+      $(".event-info").each(function (i, body) {
+        var result = {};
+        result.event = $(this).find("h3").text();
+        result.details =  $(this).find("a").attr("href");
+        //delete current records is table
+        db.Events.destroy({
+          where: {}
+        });
+    
+
+         // Create a new Article using the `result` object built from scraping
+			db.Events.create(result)
+      .then(function (dbEvents) {
+        // View the added result in the console
+        // console.log(dbEvents);
+      })
+      .catch(function (err) {
+        // If an error occurred, send it to the client
+        console.log(err);
+      });
+      console.log(result.event);	
+      console.log(result.details);
+    	});
+      }),
+
+      axios.get("http://www.nwba.org/page/show/2024662-events").then(function (response) {
+        //load response into cheerio
+        var $ = cheerio.load(response.data);
+        // console.log(response.data);
+    
+        $('.summary').each(function (i, body) {
+          var result = {};
+          result.event = $(this).find("a").text();
+          result.details = $(this).find("a").attr("href");
+          
+          db.Events.create(result)
+          .then(function (dbEvents) {
+            // View the added result in the console
+            // console.log(dbEvents);
+          })
+          .catch(function (err) {
+            // If an error occurred, send it to the client
+            console.log(err);
+          });
+        console.log(result.event);	
+        console.log(result.details);	
+      });
+        });
+  
+      // If we were able to successfully scrape and save an Article, send a message to the client
+      res.send("Scraper Complete");
+    });
