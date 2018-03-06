@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import { Link } from "react-router-dom";
-// import {Grid} from 'semantic-ui-react';
+import {Container, Grid } from 'semantic-ui-react';
 
 import Title from "../../components/Title";
 import API from "../../utils/API";
@@ -13,12 +13,14 @@ class Events extends Component {
 
   state = {
     events: [],
+    sharedevents: [],
     date: "",
     location: "", 
     details: "" 
   };
 
   componentDidMount() {
+    this.loadSharedEvents();
     this.loadEvents();
   }
 
@@ -32,12 +34,23 @@ class Events extends Component {
       .catch(err => console.log(err));
   };
 
+  loadSharedEvents = () => {
+    API.getSharedEvents()
+      .then(res =>
+        this.setState({ sharedevents: res.data },
+          console.log("hello world"),
+          console.log(res.data))
+      )
+      .catch(err => console.log(err));
+  };
+
   render() {
     return (
-      
-      <div>        
-        <Title />
-        {this.state.events.map(events => (
+    <Container>
+    <Title />
+      <Grid>       
+        
+        {this.state.events.map(events => ( 
           <EventCard
             key={events.id}
             id={events.id}
@@ -46,9 +59,22 @@ class Events extends Component {
             date={events.date} 
             location={events.location} 
           />
+         ))} 
+
+        
+        {this.state.sharedevents.map(sharedevents => (
+          <EventCard
+            key={sharedevents.id}
+            id={sharedevents.id}
+            details={sharedevents.details}
+            event={sharedevents.event}
+            date={sharedevents.date} 
+            location={sharedevents.location} 
+          />
          ))}
          
-     </div>
+     </Grid>
+     </Container>
     )
   }
 }

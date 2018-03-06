@@ -5,11 +5,22 @@ export default {
   getEvents: function() {
     return axios.get("/api/events");
   },
+  // Gets all shared events
+  getSharedEvents: function() {
+    return axios.get("/api/sharedevents");
+  },
+  
   // Saves an event to the database
   saveEvent: function(eventData) {
     console.log("inside save event" + eventData);
     return axios.post("/api/events", eventData);
   },
+
+    // Saves an event to the database
+    saveEventShared: function(eventData) {
+      console.log("inside save event" + eventData);
+      return axios.post("/api/sharedevents", eventData);
+    },
 
   // getUsers: function() {
   //   return axios.get("/api/signup");

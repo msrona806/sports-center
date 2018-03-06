@@ -86,7 +86,6 @@ db.sequelize.sync().then(function(err) {
           where: {}
         });
     
-
          // Create a new Article using the `result` object built from scraping
 			db.Events.create(result)
       .then(function (dbEvents) {

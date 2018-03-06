@@ -31,7 +31,7 @@ class EventInput extends Component {
     event.preventDefault()
     console.log(this.state.event_name)
     if (this.state.event_name && this.state.details) {
-      API.saveEvent({
+      API.saveEventShared({
         event_name: this.state.event_name,
         details: this.state.details,
         location: this.state.location,
