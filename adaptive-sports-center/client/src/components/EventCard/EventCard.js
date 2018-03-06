@@ -25,23 +25,21 @@ import { Card } from 'semantic-ui-react'
 
 const EventCard = ({ id, location, event, details, date }) => (
 <Card>
-  
-    <div className="teal card">
-      
-        <div className="header">{event}</div>
-        <div className="date">{date}</div>
-        <a className="details" href ={details}>More Information</a>
-        <div className="description">
+ 
+ 
+      <Card.Content>
+        <Card.Header>{event}</Card.Header>
+        <Card.Meta>{date}</Card.Meta>
+        <Card.Content href ={details}>More Information</Card.Content>
+        <Card.Description>
           {location}
-        </div>
-        <span className="right floated star">
-          <i className="star icon"></i>
-          Favorite
-    </span>
-      
-    </div>
-  
-</Card>
+        </Card.Description>
+        
+      </Card.Content>
+    
+
+  </Card>
+
 
 )
 

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 // import { Link } from "react-router-dom";
-import {Container, Grid } from 'semantic-ui-react';
-
+import {Container } from 'semantic-ui-react';
+import { Card } from 'semantic-ui-react'
 import Title from "../../components/Title";
 import API from "../../utils/API";
 import EventCard from "../../components/EventCard";
@@ -48,9 +48,9 @@ class Events extends Component {
     return (
     <Container>
     <Title />
-      <Grid>       
-        
-        {this.state.events.map(events => ( 
+     
+      <Card.Group>
+           {this.state.events.map(events => ( 
           <EventCard
             key={events.id}
             id={events.id}
@@ -73,8 +73,11 @@ class Events extends Component {
           />
          ))}
          
-     </Grid>
+        </Card.Group> 
+        <form method="get" action="localhost:8080/scrape" > <input type="submit" value="scrape" /> </form>
+        
      </Container>
+     
     )
   }
 }
