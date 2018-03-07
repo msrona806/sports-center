@@ -1,76 +1,104 @@
 import React from 'react'
-import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import { Button, Card, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 import './Home.css';
 
 
 
+// _handleFormSubmit = event => {
+//   event.preventDefault();
+//   console.log("signin clicked");
+// }
+
 const Home = () => (
+
+
+
+
   <div className='login-form'>
     {/*
-      Heads up! The styles below are necessary for the correct render of this example.
-      You can do same with CSS, the main idea is that all the elements up to the `Grid`
-      below must have a height of 100%.
-    */}
+Heads up! The styles below are necessary for the correct render of this example.
+You can do same with CSS, the main idea is that all the elements up to the `Grid`
+below must have a height of 100%.
+*/}
 
-    <Grid
-      textAlign='center'
-      style={{ height: '100%' }}
-      verticalAlign='middle'
-    >
+    <Grid columns={3} centered>
 
-    <Grid.Column width={4}>
-    <Image src={'https://bloximages.chicago2.vip.townnews.com/columbustelegram.com/content/tncms/assets/v3/editorial/f/ee/feedc80e-d6f7-5ee5-b800-5dbeab4dba04/5a42f547a8f8c.image.jpg?resize=1200%2C1127'} />
-    <Image src={'http://gametimeforlife.com/wp-content/uploads/2016/01/AngelCityGamesToddlerSprintParticipants-1024x771.jpg'} />
-    <Image src={'http://www4.pictures.zimbio.com/gi/Invictus+Games+Day+Four+Sitting+Volleyball+lsk1QhbAdHex.jpg'} />
-    <Image src={'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRXc3qoa0wu5mgnYcnjl0hJlU4Xi6_JltNTFgTzS-KTs92drc4_A'} />
-    </Grid.Column>
-
-      <Grid.Column width={8}>
-
-      <div className = "pageTitle">
-      <h1><u>Adaptive Sports Center</u></h1>
-      </div>
-      
-      <Message>
-        <h4>Adaptive Sports Center is a place to keep track of upcoming adaptive sports events. Login to view current events and save events you may be interested in. </h4>
-      </Message>
-        <Header as='h2' color='teal' textAlign='center'>
-          
-          {' '}Log-in to your account
-        </Header>
-        <Form size='large'>
-          <Segment stacked>
-            <Form.Input
-              fluid
-              icon='user'
-              iconPosition='left'
-              placeholder='E-mail address'
-            />
-            <Form.Input
-              fluid
-              icon='lock'
-              iconPosition='left'
-              placeholder='Password'
-              type='password'
-            />
-            <Button color='teal' fluid size='large'>Login</Button>
-          </Segment>
-        </Form>
-        <form action="/signup">
-        <input type="submit" value="New to us?" />
-        </form>
+      <Grid.Column>
+        <Image className="homeImages" src={'assets/images/track2.jpg'} />
+        <Image className="homeImages" src={'assets/images/swimming.jpg'} />
+        <Image className="homeImages" src={'assets/images/ski.jpg'} />
+        <Image className="homeImages" src={'assets/images/golf.jpg'} />
       </Grid.Column>
 
-      <Grid.Column width={4}>
-   
-    <Image src={'https://www.metroparkstacoma.org/files/library/blunk-wheelchair-basketball-8-2016-b_l.jpg'} />
-    <Image src={'https://www.passionatepeople.invacare.eu.com/wp-content/uploads/2017/04/Adaptive-Skiing-850x541.jpg'} />
-    <Image src={'https://scontent.ftpa1-1.fna.fbcdn.net/v/t1.0-9/13620056_966965460067959_8610421579503093264_n.jpg?oh=131747cbed0888e832903ce34dbfe2e1&oe=5B219AD2'} />
-    <Image src={'http://www.sellbyownerlistings.com/wp-content/uploads/dazzling-torch-passes-to-37th-national-veterans-wheelchair-games-in-cincinnati-dimensions-of-convertable-wheel-chair-flag-portraits-640x498.jpg'} />
-    
-    </Grid.Column>
+      <Grid.Column>
+        <Segment>
+          <div className="pageTitle">
+            <h1><u>Adaptive Sports Center</u></h1>
+          </div>
+
+          <Message>
+            <h4>Adaptive Sports Center is a place to keep track of upcoming adaptive sports events in one convenient location. </h4>
+          </Message>
+          <Header as='h2' color='teal' textAlign='center'>
+
+          </Header>
+        </Segment>
+        <Segment>
+          <div className="featured"><h2>Featured Events</h2></div>
+        </Segment>
+        <Segment>
+
+
+
+          <Card fluid>
+            <Card.Content>
+              <Image floated='left' size='small' src="http://www.usopen.org/images/pics/large/b_20170906_Mathewson.jpg" />
+              <Card.Header>
+                USTA National Rollers
+</Card.Header>
+              <Card.Meta>
+                Weekly, Wednesdays 6pm - 7:30pm
+</Card.Meta>
+              The National Rollers is a wheelchair tennis program is hosted at the USTA National Campus in Orlando, Florida. There are no limits to the program. All players of varying levels, disabilities, and experience are welcome. Tennis wheelchairs and racquets will be provided.
+</Card.Content>
+            <Card.Content href="www.ustanationalcampus.com/nationalrollers">USTA National Rollers Website
+</Card.Content>
+          </Card>
+
+          <Card fluid>
+            <Card.Content>
+              <Image floated='left' size='small' src="http://www.oregonpva.org/uploads/5/3/7/6/53764083/38th-games-registration-information-1_orig.jpg" />
+              <Card.Header>
+                38th National Veterans Wheelchair Games
+</Card.Header>
+              <Card.Meta>
+                July 30 - Aug 5
+</Card.Meta>
+              The 38th annual National Disabled Veterans Wheelchair Games, taking place in Orlando, FL, serves Veterans with Spinal Cord Injury, Multiple Sclerosis, Amputations and other central neurological impairments with the goal to increase their independence, healthy activity and quality of life through wheelchair sports and recreation.
+</Card.Content>
+            <Card.Content href="http://wheelchairgames.org/">NVWG Website
+</Card.Content>
+          </Card>
+
+        </Segment>
+
+
+        <a href="http://localhost:8080/scrape"> <Button color="teal" > View All Events</Button></a>
+        <a href="/inputevent"><Button color="teal" >Submit An Event</Button></a>
+      </Grid.Column>
+
+      <Grid.Column>
+
+        <Image className="homeImages" src={'assets/images/rugby.jpg'} />
+        <Image className="homeImages" src={'assets/images/archery.jpg'} />
+        <Image className="homeImages" src={'assets/images/cycling.jpg'} />
+        <Image className="homeImages" src={'assets/images/track.jpg'} />
+
+      </Grid.Column>
     </Grid>
   </div>
 )
 
 export default Home;
+
+//For signin, how will I track if a user is logged in?

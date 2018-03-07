@@ -28,11 +28,12 @@
     "express-session": "^1.15.6",
     "mysql": "^2.15.0",
     "mysql2": "^1.5.2",
+    "nodemailer": "^4.6.2",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "react-iframe": "^1.1.0",
     "semantic-ui-react": "^0.78.2",
-    "sequelize": "^4.33.4"
+    "sequelize": "^4.35.2"
   }
 }

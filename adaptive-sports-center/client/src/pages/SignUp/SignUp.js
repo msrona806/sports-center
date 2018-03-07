@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Grid } from 'semantic-ui-react'
+// import { Grid } from 'semantic-ui-react'
 import './SignUp.css'
-import { FormBtn } from '../../components/Form'
+// import SubmitEvent from '../../components/Form';
+import {FormBtn} from '../../components/Form';
 import API from "../../utils/API";
 
 
@@ -47,31 +48,8 @@ class Signup extends Component {
 
   render() {
     return (
-      <Grid>
-        <Grid.Column width={8}>
-          <form id="signup" name="signup" method="post" action="/signin">
-
-            <div className="user">
-              <label> Username:</label>
-              <input name="username" type="text" placeholder="Create username" onChange={this.handleChange} />
-            </div>
-
-            <div className="password">
-              <label> Password:</label>
-              <input name="password" type="password" placeholder="Create password" onChange={this.handleChange} />
-            </div>
-
-            <div className="email">
-              <label> Email:</label>
-              <input name="email" type="email" placeholder="Enter email address" onChange={this.handleChange} />
-            </div>
-
-            <FormBtn onClick={this._handleFormSubmit} />
-          </form>
-        </Grid.Column>
-      </Grid>
-
-
+      // <SubmitEvent />
+      <FormBtn />
     )
   };
 };

@@ -56,8 +56,7 @@ class Events extends Component {
             id={events.id}
             details={events.details}
             event={events.event}
-            date={events.date} 
-            location={events.location} 
+            link={events.link}
           />
          ))} 
 
@@ -70,11 +69,12 @@ class Events extends Component {
             event={sharedevents.event}
             date={sharedevents.date} 
             location={sharedevents.location} 
+            link={sharedevents.link} 
           />
          ))}
          
         </Card.Group> 
-        <form method="get" action="localhost:8080/scrape" > <input type="submit" value="scrape" /> </form>
+        
         
      </Container>
      

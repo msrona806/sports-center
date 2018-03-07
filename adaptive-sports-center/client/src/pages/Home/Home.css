@@ -12,3 +12,12 @@ h1 {
 h4 {
   font-family: 'Delius';
 }
+.featured {
+  font-size: 300%;
+  color: #999999;  
+  font-family: 'Tangerine';
+}
+.homeImages {
+  width: 250px;
+  height: 250px;
+}

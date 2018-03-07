@@ -80,7 +80,7 @@ db.sequelize.sync().then(function(err) {
       $(".event-info").each(function (i, body) {
         var result = {};
         result.event = $(this).find("h3").text();
-        result.details =  $(this).find("a").attr("href");
+        result.link =  $(this).find("a").attr("href");
         //delete current records is table
         db.Events.destroy({
           where: {}
@@ -97,7 +97,7 @@ db.sequelize.sync().then(function(err) {
         console.log(err);
       });
       console.log(result.event);	
-      console.log(result.details);
+      console.log(result.link);
     	});
       }),
 
@@ -109,10 +109,12 @@ db.sequelize.sync().then(function(err) {
         $('.summary').each(function (i, body) {
           var result = {};
           result.event = $(this).find("a").text();
-          result.details = $(this).find("a").attr("href");
+          result.link = $(this).find("a").attr("href");
           
           db.Events.create(result)
           .then(function (dbEvents) {
+
+            
             // View the added result in the console
             // console.log(dbEvents);
           })
@@ -121,10 +123,11 @@ db.sequelize.sync().then(function(err) {
             console.log(err);
           });
         console.log(result.event);	
-        console.log(result.details);	
+        console.log(result.link);	
       });
         });
   
       // If we were able to successfully scrape and save an Article, send a message to the client
-      res.send("Scraper Complete");
+      // res.send("Scraper Complete");
+      res.redirect("http://localhost:3000/allevents");
     });
