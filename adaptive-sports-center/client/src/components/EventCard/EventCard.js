@@ -23,16 +23,16 @@ import { Card } from 'semantic-ui-react'
 //   <Card.Group centered items={items} />
 // )
 
-const EventCard = ({ id, location, event, link, date }) => (
+const EventCard = ({ id, location, event, link, date, details }) => (
 
   <Card color='teal'> 
     <Card.Content>
       <Card.Header>{event}</Card.Header>
       <Card.Meta>{date}</Card.Meta>
+      <Card.Description>{details} </Card.Description>
       <Card.Content href ={link}>More Information</Card.Content>
-      <Card.Description>
-        {location}
-      </Card.Description>
+      
+     
         
       </Card.Content>
     </Card>

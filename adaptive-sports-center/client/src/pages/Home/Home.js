@@ -21,18 +21,18 @@ You can do same with CSS, the main idea is that all the elements up to the `Grid
 below must have a height of 100%.
 */}
 
-    <Grid columns={3} centered>
+    <Grid textAlign='center' columns='equal'>
 
       <Grid.Column>
         <Image className="homeImages" src={'assets/images/track2.jpg'} />
         <Image className="homeImages" src={'assets/images/swimming.jpg'} />
-        <Image className="homeImages" src={'assets/images/ski.jpg'} />
+        <Image className="homeImages" src={'assets/images/archery.jpg'} />
         <Image className="homeImages" src={'assets/images/golf.jpg'} />
       </Grid.Column>
 
-      <Grid.Column>
+      <Grid.Column width={10}>
         <Segment>
-          <div className="pageTitle">
+          <div className="pageTitle" centered>
             <h1><u>Adaptive Sports Center</u></h1>
           </div>
 
@@ -57,7 +57,7 @@ below must have a height of 100%.
                 USTA National Rollers
 </Card.Header>
               <Card.Meta>
-                Weekly, Wednesdays 6pm - 7:30pm
+                Weekly, Thursdays 6pm - 7:30pm
 </Card.Meta>
               The National Rollers is a wheelchair tennis program is hosted at the USTA National Campus in Orlando, Florida. There are no limits to the program. All players of varying levels, disabilities, and experience are welcome. Tennis wheelchairs and racquets will be provided.
 </Card.Content>
@@ -72,7 +72,7 @@ below must have a height of 100%.
                 38th National Veterans Wheelchair Games
 </Card.Header>
               <Card.Meta>
-                July 30 - Aug 5
+                July 30 - Aug 
 </Card.Meta>
               The 38th annual National Disabled Veterans Wheelchair Games, taking place in Orlando, FL, serves Veterans with Spinal Cord Injury, Multiple Sclerosis, Amputations and other central neurological impairments with the goal to increase their independence, healthy activity and quality of life through wheelchair sports and recreation.
 </Card.Content>
@@ -90,7 +90,7 @@ below must have a height of 100%.
       <Grid.Column>
 
         <Image className="homeImages" src={'assets/images/rugby.jpg'} />
-        <Image className="homeImages" src={'assets/images/archery.jpg'} />
+        <Image className="homeImages" src={'assets/images/ski.jpg'} />
         <Image className="homeImages" src={'assets/images/cycling.jpg'} />
         <Image className="homeImages" src={'assets/images/track.jpg'} />
 

@@ -1,10 +1,10 @@
-# Create React Express App
+# Adaptive Sports Center
 
-## About This Boilerplate
+## About 
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+Adaptive Sports Center offers a centralized location for adaptive sports competitions, trainings, camps, and events to be shared.  Finding opportunities for disability friendly events can be a daunting task. Adaptive Sports Center aims to help those wanting to engage in activities an easy way to find and share events.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
+This app was created using Mysql, Express, React, and Node. Events are listed from third-party sites using axios and cheerio, then stored in a mysql database. Visitors to the site have the ability to send a request for events to be added directly to the site. Nodemailer is utilized to send emails from the app to the app adminstrator for review.
 
 ## Starting the app locally
 
@@ -27,17 +27,31 @@ That's it, your app should be running on <http://localhost:3000>. The Express se
 
 ## Deployment (Heroku)
 
-After confirming that you have an up to date git repository and a Heroku app created, complete the following:
+## Screenshots
+![adaptive-sports-center](client/public/assets/images/sports.gif)
+## Technologies 
++ [React](https://reactjs.org/)
++ [Nodemailer](https://nodemailer.com/about/)
++ [Node.js](https://nodejs.org/en/)
++ [Yarn](https://yarnpkg.com/en/)
++ [Semantic UI React](https://react.semantic-ui.com)
++ [Google Fonts](https://fonts.google.com/)
+* axios
+* bcrypt-nodejs
+* body-parser
+* cheerio
+* create-react-class
+* dotenv
+* express
+* express-session
+* mysql
+* mysql
+* path
+* react-iframe
+* semantic-ui-react
+* sequelize
 
-1. Build the React app for production by running the following command:
 
-```
-yarn build
-```
-> Note: A yarn build will be required to register any new Post requests from any front-end JavaScript to to prevent any proxy server errors.
 
-2. Add and commit all changes to git
-
-3. Push to Heroku
-
-If all previous steps were followed correctly, your application should be deployed to Heroku!
+## Author
+Sharona Young

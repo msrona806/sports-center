@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import { Link } from "react-router-dom";
 // import Button from "../../components/Button";
 import API from "../../utils/API";
-import { Container } from 'semantic-ui-react';
+import { Container, Form } from 'semantic-ui-react';
 import AgreeModal from '../../components/Modal'
 
 class EventInput extends Component {
@@ -39,7 +39,9 @@ class EventInput extends Component {
         location: this.state.location,
         date: this.state.date
 
-      }); console.log("click")
+      }); 
+      this.EventInput.reset();
+      alert("Event submitted for review. Event will be added to list of events upon approval. Please allow up to 5 business days for approval");
       // .then(res => this.loadEvents())
       // .catch(err => console.log(err));
     }
@@ -48,6 +50,7 @@ class EventInput extends Component {
   render() {
     return (
       <Container>
+        <h2>Submit an event to be added to the site</h2>
         <form>
           <div className="ui form">
 
@@ -137,6 +140,7 @@ class EventInput extends Component {
           </div>
         </form>
         <button onClick={this._handleFormSubmit} >Click Me </button>
+        <Form.Checkbox label='I agree to the Terms and Conditions' />
         <AgreeModal />
       </Container>
     )

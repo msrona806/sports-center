@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import { Link } from "react-router-dom";
-import {Container } from 'semantic-ui-react';
+import {Container} from 'semantic-ui-react';
 import { Card } from 'semantic-ui-react'
 import Title from "../../components/Title";
 import API from "../../utils/API";
@@ -48,29 +48,28 @@ class Events extends Component {
     return (
     <Container>
     <Title />
-     
+     <h2><u>Current Events</u></h2>
       <Card.Group>
-           {this.state.events.map(events => ( 
+           {this.state.sharedevents.map(sharedevents => ( 
           <EventCard
-            key={events.id}
-            id={events.id}
-            details={events.details}
-            event={events.event}
-            link={events.link}
-          />
+          key={sharedevents.id}
+          id={sharedevents.id}
+          details={sharedevents.details}
+          event={sharedevents.event}
+          date={sharedevents.date} 
+          location={sharedevents.location} 
+          link={sharedevents.link} 
+        />
          ))} 
-
         
-        {this.state.sharedevents.map(sharedevents => (
+        {this.state.events.map(events => (
           <EventCard
-            key={sharedevents.id}
-            id={sharedevents.id}
-            details={sharedevents.details}
-            event={sharedevents.event}
-            date={sharedevents.date} 
-            location={sharedevents.location} 
-            link={sharedevents.link} 
-          />
+          key={events.id}
+          id={events.id}
+          details={events.details}
+          event={events.event}
+          link={events.link}
+        />
          ))}
          
         </Card.Group> 
