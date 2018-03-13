@@ -6,7 +6,7 @@ Adaptive Sports Center offers a centralized location for adaptive sports competi
 
 This app was created using Mysql, Express, React, and Node. Events are listed from third-party sites using axios and cheerio, then stored in a mysql database. Visitors to the site have the ability to send a request for events to be added directly to the site. Nodemailer is utilized to send emails from the app to the app adminstrator for review.
 
-## Starting the app locally
+## Starting the app locally...
 
 Start by installing front and backend dependencies. While in this directory, run the following commands:
 
@@ -17,6 +17,7 @@ yarn install
 cd ..
 ``
 
+ 
 After both installations complete, run the following command in your terminal:
 
 ```
