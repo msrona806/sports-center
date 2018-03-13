@@ -10,17 +10,13 @@ This app was created using Mysql, Express, React, and Node. Events are listed fr
 
 Start by installing front and backend dependencies. While in this directory, run the following commands:
 
-```
 yarn install
 cd client
 yarn install
 cd ..
-``
 
  
 After both installations complete, run the following command in your terminal:
-
-```
 yarn start
 
 
