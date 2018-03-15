@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Mern Demo",
   "main": "server.js",
+  "engines": {
+    "node": "9.5.0"
+  },
   "scripts": {
     "server": "node server.js",
     "client": "node scripts/start-client.js",
