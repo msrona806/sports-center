@@ -25,7 +25,7 @@ That's it, your app should be running on <http://localhost:3000>. The Express se
 ## Deployment (Heroku)
 
 ## Screenshots
-![adaptive-sports-center](/adaptive-sports-center/client/public/assets/images/sports.gif)
+![adaptive-sports-center](client/public/assets/images/sports.gif)
 ## Technologies 
 + [React](https://reactjs.org/)
 + [Nodemailer](https://nodemailer.com/about/)
